@@ -20,7 +20,7 @@ app.use(shopRoutes);
 app.use((req, res) => {
    res.status(404)
        // .sendFile(path.join(rootDir, "views", "404.html"));
-       .render("404", { docTitle: "404 | Page not found" })
+       .render("404", { pageTitle: "404 | Page not found" })
 });
 
 app.listen(3000);
