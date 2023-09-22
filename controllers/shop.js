@@ -51,10 +51,12 @@ exports.getCart = (req, res) => {
     );
 }
 
-exports.postCart = (req) => {
+exports.postCart = (req, res) => {
     const productId = req.body.productId;
     Product.findById(productId, (product) => {
         Cart.addProduct(productId, product.price);
+
+        res.redirect("/cart");
     });
 }
 
