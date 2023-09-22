@@ -2,12 +2,13 @@
     width: 20rem;
     max-width: 90%;
     margin: auto;
+    display: block;
 }
 
 .product-item {
     width: 20rem;
     max-width: 95%;
-    margin-bottom: 3rem;
+    margin: 1rem;
 }
 
 .product__title {
@@ -23,9 +24,9 @@
 
 .product__description {
     text-align: center;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 4;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
 }

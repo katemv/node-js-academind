@@ -1,0 +1,13 @@
+extends ../layouts/main-layout.pug
+
+block content
+    main.centered
+        h1 #{product.title}
+        hr
+        div
+            img(src=product.imageUrl alt=product.title)
+        h2 $#{product.price}
+        p #{product.description}
+        form(action="/cart" method="POST")
+            button.btn(type="submit") Add to cart
+            input(type="hidden", name="productId" value=product.id)
