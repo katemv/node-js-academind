@@ -2,43 +2,50 @@ const Product = require("../models/product");
 const Cart = require("../models/cart");
 
 exports.getProducts = (req, res) => {
-    Product.fetchAll((products) => {
-        res.render(
-            "shop/product-list",
-            {
-                products,
-                pageTitle: "Shop",
-                path: "/products"
-            }
-        );
-    });
+    Product.fetchAll()
+        .then(([rows]) => {
+            res.render(
+                "shop/product-list",
+                {
+                    products: rows,
+                    pageTitle: "Shop",
+                    path: "/products"
+                }
+            );
+        })
+        .catch((err) => console.log(err));
 }
 
 exports.getProduct = (req, res) => {
     const productId = req.params.productId;
-    Product.findById(productId, (product) => {
-        res.render(
-            "shop/product-detail",
-            {
-                product,
-                pageTitle: product.title,
-                path: "/products"
-            }
-        );
-    })
+
+    Product.findById(productId)
+        .then(([products]) => {
+            res.render(
+                "shop/product-detail",
+                {
+                    product: products[0],
+                    pageTitle: products[0].title,
+                    path: "/products"
+                }
+            );
+        })
+        .catch((err) => console.log(err));
 }
 
 exports.getIndex = (req, res) => {
-    Product.fetchAll((products) => {
-        res.render(
-            "shop/index",
-            {
-                products,
-                pageTitle: "Shop",
-                path: "/"
-            }
-        );
-    });
+    Product.fetchAll()
+        .then(([rows]) => {
+            res.render(
+                "shop/index",
+                {
+                    products: rows,
+                    pageTitle: "Shop",
+                    path: "/"
+                }
+            );
+        })
+        .catch((err) => console.log(err));
 }
 
 exports.getCart = (req, res) => {
