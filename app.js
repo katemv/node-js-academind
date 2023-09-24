@@ -6,7 +6,7 @@ const rootDir = require("./util/path");
 const adminRoutes = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
 const errorController = require("./controllers/error");
-const database = require("./util/database");
+const sequelize = require("./util/database");
 
 const app = express();
 
@@ -21,4 +21,10 @@ app.use(shopRoutes);
 
 app.use(errorController.get404);
 
-app.listen(3000);
+sequelize.sync().then((result) => {
+        console.log("result", result);
+        app.listen(3000);
+    })
+    .catch((err) => {
+        console.log("err", err);
+    });

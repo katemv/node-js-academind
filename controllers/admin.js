@@ -1,4 +1,4 @@
-const Product = require("../models/old_product");
+const Product = require("../models/product");
 
 exports.getAddProduct = (req, res) => {
     res.render(
@@ -13,9 +13,8 @@ exports.getAddProduct = (req, res) => {
 
 exports.postAddProduct = (req, res) => {
     const { title, imageUrl, description, price } = req.body;
-    const product = new Product(null, title, imageUrl, description, price);
 
-    product.save()
+    Product.create({ title, imageUrl, description, price }, {})
         .then(() => res.redirect("/products"))
         .catch((err) => console.log(err));
 };

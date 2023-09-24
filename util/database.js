@@ -1,4 +1,4 @@
-const Sequelize = require("sequelize");
+const { Sequelize } = require("sequelize");
 
 const sequelize = new Sequelize(
     "node-complete",
@@ -11,3 +11,4 @@ const sequelize = new Sequelize(
 );
 
 module.exports = sequelize;
+``
