@@ -49,16 +49,17 @@ exports.getEditProduct = (req, res) => {
 exports.postEditProduct = (req, res) => {
     const { productId, title, imageUrl, description, price } = req.body;
 
-    Product.findById(productId, (product) => {
-        if (!product) {
-            return res.redirect("/");
-        }
+    Product.findByPk(productId)
+        .then((product) => {
+            product.title = title;
+            product.imageUrl = imageUrl;
+            product.description = description;
+            product.price = price;
 
-        const updatedProduct = new Product(productId, title, imageUrl, description, price);
-        updatedProduct.save();
-        res.redirect("/admin/products");
-    });
-
+            return product.save();
+        })
+        .then(() => res.redirect("/admin/products"))
+        .catch((err) => console.log(err));
 };
 
 exports.postDeleteProduct = (req, res) => {
