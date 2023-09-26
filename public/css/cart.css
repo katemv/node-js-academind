@@ -1,0 +1,9 @@
+.cart__item {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 900px;
+    margin: 0 auto 20px;
+    padding: 0 20px;
+}
