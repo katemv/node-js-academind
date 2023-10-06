@@ -40,7 +40,7 @@ const mongoConnect = (callback) => {
 }
 
 const collections = {
-    PRODUCTS: "PRODUCTS"
+    PRODUCTS: "products"
 }
 
 module.exports.mongoConnect = mongoConnect;
