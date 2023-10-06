@@ -1,4 +1,4 @@
-const Product = require("../models/product");
+const Product = require("../models/product-sql");
 
 exports.getProducts = (req, res) => {
     Product.findAll().then((products) => {

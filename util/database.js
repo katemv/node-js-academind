@@ -18,7 +18,7 @@ async function run() {
         db = client.db();
     } finally {
         // Ensures that the client will close when you finish/error
-        await client.close();
+        // await client.close();
     }
 }
 
@@ -39,5 +39,10 @@ const mongoConnect = (callback) => {
         });
 }
 
+const collections = {
+    PRODUCTS: "PRODUCTS"
+}
+
 module.exports.mongoConnect = mongoConnect;
 module.exports.getDb = getDb;
+module.exports.collections = collections;
