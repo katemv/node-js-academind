@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../util/database");
 
-const Order = sequelize.define("order", {
+const OrderSql = sequelize.define("order", {
    id:  {
        type: DataTypes.INTEGER,
        autoIncrement: true,
@@ -10,4 +10,4 @@ const Order = sequelize.define("order", {
    },
 });
 
-module.exports = Order;
+module.exports = OrderSql;

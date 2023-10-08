@@ -1,0 +1,24 @@
+.order_list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.order_list-item {
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.order_list-title {
+    font-size: 16px;
+    margin: 0;
+}
+
+.order_list-product {
+    border: 1px solid #00695c;
+    color: #00695c;
+    padding: 10px;
+    margin-top: 10px;
+}
