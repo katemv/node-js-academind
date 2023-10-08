@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
-const sequelize = require("../util/database");
+const sequelize = require("../../util/old/database-mongodb");
 
-const OrderItemSql = sequelize.define("orderItem", {
+const CartItem = sequelize.define("cartItem", {
     id:  {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -11,4 +11,4 @@ const OrderItemSql = sequelize.define("orderItem", {
     quantity: DataTypes.INTEGER
 });
 
-module.exports = OrderItemSql;
+module.exports = CartItem;

@@ -1,4 +1,4 @@
-const Product = require("../models/product-sql");
+const Product = require("../../models/old/product-sql");
 
 exports.getAddProduct = (req, res) => {
     console.log("getAddProduct");

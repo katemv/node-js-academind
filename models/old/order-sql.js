@@ -1,5 +1,5 @@
 const { DataTypes } = require("sequelize");
-const sequelize = require("../util/database");
+const sequelize = require("../../util/old/database-mongodb");
 
 const OrderSql = sequelize.define("order", {
    id:  {

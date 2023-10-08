@@ -1,6 +1,6 @@
 const { DataTypes } = require("sequelize");
 
-const sequelize = require("../util/database");
+const sequelize = require("../../util/old/database-mongodb");
 
 const UserSql = sequelize.define("user", {
     id: {

@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const dirname = require("../util/path");
+const dirname = require("../../util/path");
 
 const p = path.join(dirname, "data", "cart.json");
 

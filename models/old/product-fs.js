@@ -1,4 +1,4 @@
-const db = require("../util/database");
+const db = require("../../util/old/database-mongodb");
 
 module.exports = class Product {
     constructor(id, title, imageUrl, description, price) {

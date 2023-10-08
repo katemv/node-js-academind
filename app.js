@@ -7,7 +7,7 @@ const adminRoutes = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
 const User = require("./models/user");
 const errorController = require("./controllers/error");
-const mongoConnect = require("./util/database").mongoConnect;
+const mongoConnect = require("./util/old/database-mongodb").mongoConnect;
 
 const testUserId = "6521d72f0f93df2e403f2fe2";
 
