@@ -23,7 +23,7 @@ const userSchema = new Schema({
                 required: true
             }
         }]
-    },
+    }
 });
 
 userSchema.methods.addToCart = function (product) {
@@ -52,6 +52,11 @@ userSchema.methods.removeFromCart = function (productId) {
     });
 
     return this.save();
+}
+
+userSchema.methods.clearCart = function () {
+    this.cart = { items: [] };
+    this.save();
 }
 
 module.exports = mongoose.model("User", userSchema);

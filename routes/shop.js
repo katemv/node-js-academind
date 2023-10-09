@@ -22,13 +22,13 @@ router.post("/cart", shopController.postCart);
 // /cart-delete-item => POST
 router.post("/cart-delete-item", shopController.postCartDeleteProduct);
 
-// // /orders => GET
-// router.get("/orders", shopController.getOrders);
-//
-// // /checkout => GET
-// router.get("/checkout", shopController.getCheckout);
-//
-// // /create-order => GET
-// router.get("/create-order", shopController.postOrder);
+// /orders => GET
+router.get("/orders", shopController.getOrders);
+
+// /create-order => GET
+router.get("/create-order", shopController.postOrder);
+
+// /checkout => GET
+router.get("/checkout", shopController.getCheckout);
 
 module.exports = router;
