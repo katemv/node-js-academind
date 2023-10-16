@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const rootDir = require("./util/path");
 const adminRoutes = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
+const authRoutes = require("./routes/auth");
 const User = require("./models/user");
 const errorController = require("./controllers/error");
 
@@ -30,6 +31,7 @@ app.set("views", "views");
 
 app.use("/admin", adminRoutes);
 app.use(shopRoutes);
+app.use(authRoutes);
 
 app.use(errorController.get404);
 
