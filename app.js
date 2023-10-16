@@ -26,6 +26,19 @@ app.use(session({
     store: new MongoDBStore({ uri: MONGODB_URI, collection: collections.SESSIONS })
 }));
 
+app.use((req, res, next) => {
+    if (!req.session.user) {
+        return next();
+    }
+
+    User.findById(req.session.user._id)
+        .then((user) => {
+            req.user = user;
+            next();
+        })
+        .catch((err) => console.log("err", err));
+});
+
 app.set("view engine", "pug");
 app.set("views", "views");
 

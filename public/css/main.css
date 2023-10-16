@@ -53,6 +53,14 @@ form {
   color: white;
 }
 
+.main-header__item button {
+  background: transparent;
+  color: #ffeb3b;
+  border: none;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+}
+
 .main-header__item a:hover,
 .main-header__item a:active,
 .main-header__item a.active {
