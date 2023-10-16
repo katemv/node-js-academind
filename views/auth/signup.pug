@@ -5,12 +5,15 @@ block styles
     link(rel="stylesheet", href="/css/auth.css")
 block content
     main
-        form.login-form(action="/login", method="POST")
+        form.login-form(action="/signup", method="POST")
             div.form-control
                 label(for="email") Email
                 input(type="text", name="email", id="email", value="")
             div.form-control
                 label(for="password") Password
                 input(type="password", name="password", id="password", value="")
+            div.form-control
+                label(for="confirmPassword") Confirm Password
+                input(type="password", name="confirmPassword", id="confirmPassword", value="")
 
-            button.btn(type="submit") Login
+            button.btn(type="submit") Signup
