@@ -23,10 +23,14 @@ html(lang="en")
                         a(href="/orders", class=(path === "/orders" ? "active" : "")) Orders
                     li.main-header__item
                         a(href="/checkout", class=(path === "/checkout" ? "active" : "")) Checkout
+                    if isAuthenticated
+                        li.main-header__item
+                            a(href="/admin/add-product", class=(path === "/admin/add-product" ? "active" : "")) Add Product
+                        li.main-header__item
+                            a(href="/admin/products", class=(path === "/admin/products" ? "active" : "")) Admin Products
+                ul.main-header__item-list
                     li.main-header__item
-                        a(href="/admin/add-product", class=(path === "/admin/add-product" ? "active" : "")) Add Product
-                    li.main-header__item
-                        a(href="/admin/products", class=(path === "/admin/products" ? "active" : "")) Admin Products
+                        a(href="/login", class=(path === "/login" ? "active" : "")) Login
             nav.mobile-nav
                 ul.mobile-nav__item-list
                     li.mobile-nav__item
@@ -39,9 +43,13 @@ html(lang="en")
                         a(href="/orders", class=(path === "/orders" ? "active" : "")) Orders
                     li.mobile-nav__item
                         a(href="/checkout", class=(path === "/checkout" ? "active" : "")) Checkout
-                    li.mobile-nav__item
-                        a(href="/admin/add-product", class=(path === "/admin/add-product" ? "active" : "")) Add Product
-                    li.mobile-nav__item
-                        a(href="/admin/products", class=(path === "/admin/products" ? "active" : "")) Admin Products
+                    if isAuthenticated
+                        li.mobile-nav__item
+                            a(href="/admin/add-product", class=(path === "/admin/add-product" ? "active" : "")) Add Product
+                        li.mobile-nav__item
+                            a(href="/admin/products", class=(path === "/admin/products" ? "active" : "")) Admin Products
+                ul.main-header__item-list
+                    li.main-header__item
+                        a(href="/login", class=(path === "/login" ? "active" : "")) Login
         block content
     script(src="/js/main.js")
