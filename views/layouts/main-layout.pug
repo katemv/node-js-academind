@@ -32,6 +32,7 @@ html(lang="en")
                     if isAuthenticated
                         li.main-header__item
                             form(action="/logout", method="post")
+                                input(type="hidden", value=csrfToken, name="_csrf")
                                 button.btn(type="submit") Logout
                     else
                         li.main-header__item
@@ -60,6 +61,7 @@ html(lang="en")
                     if isAuthenticated
                         li.main-header__item
                             form(action="/logout", method="post")
+                                input(type="hidden", value=csrfToken, name="_csrf")
                                 button.main-header__item(type="submit") Logout
                     else
                         li.main-header__item

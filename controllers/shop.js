@@ -44,7 +44,6 @@ exports.getIndex = (req, res) => {
                     products,
                     pageTitle: "Shop",
                     path: "/",
-                    isAuthenticated: req.session.isLoggedIn
                 }
             );
         })
@@ -119,7 +118,7 @@ exports.postOrder = (req, res) => {
 
             const order = new Order({
                 user: {
-                    name: req.user.name,
+                    email: req.user.email,
                     userId: req.user
                 },
                 products: user.cart.items.map((item) => ({

@@ -20,6 +20,7 @@ block content
                             if isAuthenticated
                                 form(action="/cart" method="POST")
                                     button.btn(type="submit") Add to cart
+                                    input(type="hidden", value=csrfToken, name="_csrf")
                                     input(type="hidden", name="productId" value=product._id)
-        else
-            h1 No products
+                            else
+                                h1 No products
