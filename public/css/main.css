@@ -236,3 +236,19 @@ form {
     display: none;
   }
 }
+
+.user-message {
+  margin: auto;
+  width: 40%;
+  border: 1px solid #2c2ee8;
+  background: #aaaaea;
+  padding: 0.5rem;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.user-message--error {
+  border-color: #e1152d;
+  color: #e1152d;
+  background: #f9abb4;
+}

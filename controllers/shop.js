@@ -9,8 +9,7 @@ exports.getProducts = (req, res) => {
                 {
                     products,
                     pageTitle: "Shop",
-                    path: "/products",
-                    isAuthenticated: req.session.isLoggedIn
+                    path: "/products"
                 }
             );
         })
@@ -27,8 +26,7 @@ exports.getProduct = (req, res) => {
                 {
                     product: product,
                     pageTitle: product.title,
-                    path: "/products",
-                    isAuthenticated: req.session.isLoggedIn
+                    path: "/products"
                 }
             );
         })
@@ -59,8 +57,7 @@ exports.getCart = (req, res) => {
                 {
                     pageTitle: "Cart",
                     path: "/cart",
-                    products: user.cart.items,
-                    isAuthenticated: req.session.isLoggedIn
+                    products: user.cart.items
                 }
             );
         })
@@ -92,8 +89,7 @@ exports.getOrders = (req, res) => {
                 {
                     pageTitle: "Orders",
                     path: "/orders",
-                    orders: orders,
-                    isAuthenticated: req.session.isLoggedIn
+                    orders: orders
                 }
             );
         })
@@ -105,8 +101,7 @@ exports.getCheckout = (req, res) => {
         "shop/checkout",
         {
             pageTitle: "Checkout",
-            path: "/checkout",
-            isAuthenticated: req.session.isLoggedIn
+            path: "/checkout"
         }
     );
 }
