@@ -68,7 +68,7 @@ exports.getSignup = (req, res) => {
 };
 
 exports.postSignup = (req, res) => {
-    const { email, password, confirmPassword } = req.body;
+    const { email, password } = req.body;
 
     User.findOne({ email })
         .then((userDoc) => {
@@ -90,4 +90,17 @@ exports.postSignup = (req, res) => {
                 .then(() => res.redirect("/login"))
         })
         .catch((err) => console.log(err));
+};
+
+exports.getReset = (req, res) => {
+    const message = req.flash("error");
+
+    res.render(
+        "auth/reset",
+        {
+            pageTitle: "Reset password",
+            path: "/reset",
+            errorMessage: message.length > 0 ? message[0] : null
+        }
+    );
 };
