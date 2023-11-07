@@ -14,8 +14,9 @@ const authRoutes = require("./routes/auth");
 const User = require("./models/user");
 const errorController = require("./controllers/error");
 const { collections } = require("./util/old/database-mongodb");
+const { endpoint } = require("./util/config");
 
-const MONGODB_URI = "mongodb+srv://mvkatt:rZFoWqYyFxJTpPjs@cluster0.cliwa5l.mongodb.net/shop?retryWrites=true&w=majority";
+const MONGODB_URI = endpoint;
 
 const app = express();
 

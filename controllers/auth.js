@@ -3,10 +3,11 @@ const nodemailer = require("nodemailer");
 const sendgridTransport = require("nodemailer-sendgrid-transport");
 
 const User = require("../models/user");
+const { sendgridApiKey } = require("../util/config");
 
 const transporter = nodemailer.createTransport(sendgridTransport({
     auth: {
-        api_key: "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",
+        api_key: sendgridApiKey,
     }
 }));
 
@@ -98,6 +99,7 @@ exports.postSignup = (req, res) => {
                 })
                 .then(() => {
                     res.redirect("/login");
+
                     return transporter
                         .sendMail({
                             to: email,
