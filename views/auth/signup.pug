@@ -7,16 +7,16 @@ block content
     main
         if errorMessage
             div.user-message.user-message--error #{errorMessage}
-        form.login-form(action="/signup", method="POST")
+        form.login-form(action="/signup", method="POST" novalidate)
             input(type="hidden", value=csrfToken, name="_csrf")
             div.form-control
                 label(for="email") Email
-                input(type="text", name="email", id="email", value="")
+                input(type="text", name="email", id="email", value=(oldInput ? (oldInput.email || "") : ""))
             div.form-control
                 label(for="password") Password
-                input(type="password", name="password", id="password", value="")
+                input(type="password", name="password", id="password", value=(oldInput ? (oldInput.password || "") : ""))
             div.form-control
                 label(for="confirmPassword") Confirm Password
-                input(type="password", name="confirmPassword", id="confirmPassword", value="")
+                input(type="password", name="confirmPassword", id="confirmPassword", value=(oldInput ? (oldInput.confirmPassword || "") : ""))
 
             button.btn(type="submit") Signup
