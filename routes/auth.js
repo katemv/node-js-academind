@@ -22,4 +22,13 @@ router.post("/signup", authController.postSignup);
 // /reset => GET
 router.get("/reset", authController.getReset);
 
+// /reset => POST
+router.post("/reset", authController.postReset);
+
+// /new-password => GET
+router.get("/reset/:token", authController.getNewPassword);
+
+// /new-password => POST
+router.post("/new-password", authController.postNewPassword);
+
 module.exports = router;

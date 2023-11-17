@@ -14,9 +14,7 @@ const authRoutes = require("./routes/auth");
 const User = require("./models/user");
 const errorController = require("./controllers/error");
 const { collections } = require("./util/old/database-mongodb");
-const { endpoint } = require("./util/config");
-
-const MONGODB_URI = endpoint;
+const { mongoDBUri } = require("./util/config");
 
 const app = express();
 
@@ -28,7 +26,7 @@ app.use(session({
     secret: "my secret",
     resave: false,
     saveUninitialized: false,
-    store: new MongoDBStore({ uri: MONGODB_URI, collection: collections.SESSIONS })
+    store: new MongoDBStore({ uri: mongoDBUri, collection: collections.SESSIONS })
 }));
 app.use(csrfProtection);
 app.use(flash());
@@ -61,7 +59,7 @@ app.use(authRoutes);
 
 app.use(errorController.get404);
 
-mongoose.connect(MONGODB_URI)
+mongoose.connect(mongoDBUri)
     .then(() => {
         app.listen(3000);
     })
