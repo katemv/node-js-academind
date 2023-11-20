@@ -14,7 +14,7 @@ exports.getAddProduct = (req, res) => {
     );
 };
 
-exports.postAddProduct = (req, res) => {
+exports.postAddProduct = (req, res, next) => {
     const { title, imageUrl, description, price } = req.body;
     const errors = validationResult(req);
 
@@ -47,7 +47,12 @@ exports.postAddProduct = (req, res) => {
 
     product.save()
         .then(() => res.redirect("/products"))
-        .catch((err) => console.log(err));
+        .catch((err) => {
+            const error = new Error(err);
+            error.httpStatus = 500;
+
+            return next(error);
+        });
 };
 
 exports.getEditProduct = (req, res) => {

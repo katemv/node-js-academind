@@ -38,10 +38,15 @@ app.use((req, res, next) => {
 
     User.findById(req.session.user._id)
         .then((user) => {
+            if (!user) {
+                return next();
+            }
             req.user = user;
             next();
         })
-        .catch((err) => console.log("err", err));
+        .catch((err) => {
+            throw new Error(err);
+        });
 });
 
 app.use((req, res, next) => {
@@ -56,8 +61,12 @@ app.set("views", "views");
 app.use("/admin", adminRoutes);
 app.use(shopRoutes);
 app.use(authRoutes);
-
 app.use(errorController.get404);
+
+app.use((error, req, res) => {
+    res.status(500)
+        .render("500", { pageTitle: "500 | Something went wrong" })
+});
 
 mongoose.connect(mongoDBUri)
     .then(() => {
